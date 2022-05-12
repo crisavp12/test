@@ -1,0 +1,60 @@
+﻿<!-- Basic datatable -->
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Artículos defectuosos</h5>
+        <a href="@Url.Action("CreateItem")" class="btn btn-danger rounded-round">Crear artículo</a>
+    </div>
+
+
+    <table class="table datatable-basic">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th class="text-center">Estado</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.Item)
+            {
+                <tr>
+                    <td>@item["it_id"]</td>
+                    <td>@item["it_name"]</td>
+                    <td>
+                        @if (item["it_state"] == 1)
+                        {
+                            <span>Óptimo </span>
+                        }
+                        else
+                        {
+                            <span>Defectuoso</span>
+                        }
+                    </td>
+                    <td class="text-center">
+                        <div class="list-icons">
+                            <div class="dropdown">
+                                <a href="#" class="list-icons-item" data-toggle="dropdown">
+                                    <i class="icon-menu9"></i>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="/Home/ItemOutput/@item["it_id"]" class="dropdown-item">Salida del articulo</a>
+                                    @if (item["it_state"] == 1)
+                                    {
+                                        <a href="/Home/ChangeStatus/@item["it_id"]" class="dropdown-item"> Marcar como defectuoso</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Home/ChangeStatus/@item["it_id"]" class="dropdown-item">Marcar como óptimo</a>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<!-- /basic datatable -->

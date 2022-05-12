@@ -1,0 +1,26 @@
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Crear articulo</h5>
+        <div class="header-elements">
+        </div>
+    </div>
+
+    <div class="card-body">
+        <form (ngSubmit)="Storage(f)" #f="ngForm">
+            <fieldset>
+                <legend class="font-weight-semibold text-uppercase font-size-sm"></legend>
+
+                <div class="form-group row">
+                    <label class="col-lg-3 col-form-label">Ingrese el nombre del articulo:</label>
+                    <div class="col-lg-9">
+                        <input type="text" class="form-control" placeholder="Nombre" name="Name" [ngModel]='itemForm.Name' required #Name="ngModel">
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="text-right">
+                <button type="submit" class="btn btn-danger">Enviar<i class="icon-paperplane ml-2"></i></button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<!-- Basic datatable -->
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Todos los artículos</h5>
+        <a (click)="goStorage()" class="btn btn-danger rounded-round">Crear artículo</a>
+    </div>
+
+
+    <table class="table datatable-basic">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th class="text-center ">Estado</th>
+                <th class="text-center ">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let item of items">
+                <tr>
+                    <td>{{item.Id}}</td>
+                    <td>{{item.Name}}</td>
+                    <ng-template *ngIf="item.State == 1; then thenBlock else elseBlock"></ng-template>
+
+                    <ng-template #thenBlock>
+                        <td><span>Óptimo </span></td>
+
+                    </ng-template>
+
+                    <ng-template #elseBlock>
+                        <td><span>Defectuoso</span></td>
+                    </ng-template>
+                    <td class="row">
+                        <a (click)="ItemOutput(item.Id)" class="badge badge-info col m-1">Salida del articulo</a>
+                        <a (click)="ChangeState(item.Id)" *ngIf="item.State != 1" class="badge badge-success col m-1">Marcar como óptimo</a>
+                        <a (click)="ChangeState(item.Id)" *ngIf="item.State == 1" class="badge badge-danger col m-1">Marcar como defectuoso</a>
+                    </td>
+                </tr>
+            </ng-container>
+
+        </tbody>
+    </table>
+</div>
+<!-- /basic datatable -->

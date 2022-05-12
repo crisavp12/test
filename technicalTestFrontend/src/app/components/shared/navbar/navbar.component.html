@@ -1,0 +1,26 @@
+<!-- Main navbar -->
+<div class="navbar navbar-dark navbar-expand-xl">
+    <div class="navbar-brand">
+        <a href="index.html" class="d-inline-block">
+            <img src="../../../../global_assets/images/logo_light.png" alt="">
+        </a>
+    </div>
+
+    <div class="d-xl-none">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-demo1-mobile">
+            <i class="icon-grid3"></i>
+        </button>
+    </div>
+
+    <div class="navbar-collapse collapse" id="navbar-demo1-mobile">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a (click)="goAllItems()" class="navbar-nav-link">Todos los artículos</a></li>
+            <li class="nav-item"><a (click)="goDefectiveItems()" class="navbar-nav-link">Articulos Defectuosos</a></li>
+            <li class="nav-item"><a (click)="goGoodItems()" class="navbar-nav-link">Articulos en optimo estado</a></li>
+        </ul>
+
+        <ul class="navbar-nav ml-xl-auto">
+        </ul>
+    </div>
+</div>
+<!-- /main navbar -->
